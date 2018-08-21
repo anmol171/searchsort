@@ -1,11 +1,16 @@
 #include<stdio.h>
 
-int binary(int a[], int n, int x)
+int interpolation(int a[], int n, int x)
 {
 	int l=0,i,h,mid;
 	h=n-1;
 	while(l<=h){
-	mid = (l+h)/2;
+		
+		
+	mid =l+(((h-l)/(a[h]-a[l])) * (x - a[l])) ;
+	
+	printf("Value of Mid: %d\n",mid);
+
 	
 	if(a[mid]==x)
 	{
@@ -71,7 +76,7 @@ void main()
 	scanf("%d",&x);
 	
 	
-	l = binary(a,n,x);
+	l = interpolation(a,n,x);
 
 	if(l != -1)	
 	printf("%d",l);
